@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Paddle Drive OCR POC</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">PD</div>
+          <div>
+            <strong>Paddle Drive</strong>
+            <span>OCR search POC</span>
+          </div>
+        </div>
+        <label class="upload-button">
+          <input id="fileInput" type="file" multiple />
+          <span class="icon">+</span>
+          Upload
+        </label>
+        <nav class="nav">
+          <button class="nav-item active" data-filter="all">All files</button>
+          <button class="nav-item" data-filter="indexed">Indexed</button>
+          <button class="nav-item" data-filter="recent">Recent</button>
+        </nav>
+        <div class="storage-note">
+          <span id="fileCount">0 files</span>
+          <small>Stored locally in this workspace.</small>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div class="search-wrap">
+            <span class="search-icon">⌕</span>
+            <input id="searchInput" type="search" placeholder="Search filenames and OCR text" />
+          </div>
+          <div class="view-toggle" aria-label="View mode">
+            <button id="gridBtn" class="active" title="Grid view">▦</button>
+            <button id="listBtn" title="List view">☰</button>
+          </div>
+        </header>
+
+        <section class="hero">
+          <div>
+            <h1>Upload, OCR, search, download.</h1>
+            <p>Drop in images and PaddleOCR will index their text in the background.</p>
+          </div>
+          <div id="uploadStatus" class="upload-status">Ready</div>
+        </section>
+
+        <section class="toolbar">
+          <h2 id="sectionTitle">All files</h2>
+          <button id="refreshBtn">Refresh</button>
+        </section>
+
+        <section id="dropZone" class="drop-zone">
+          <div>
+            <strong>Drop files here</strong>
+            <span>PNG, JPG, WEBP, BMP, TIFF, DOCX, and XLSX are indexed. Other files remain downloadable.</span>
+          </div>
+        </section>
+
+        <section id="filesView" class="files-grid"></section>
+        <section id="emptyState" class="empty-state hidden">
+          <div class="empty-icon">□</div>
+          <h3>No files yet</h3>
+          <p>Upload an image to start testing OCR search.</p>
+        </section>
+      </main>
+
+      <aside id="detailPanel" class="detail-panel">
+        <button id="closePanel" class="panel-close">×</button>
+        <div id="detailEmpty" class="detail-empty">
+          <div class="empty-icon">⌕</div>
+          <h3>Select a file</h3>
+          <p>OCR text, status, and actions will appear here.</p>
+        </div>
+        <div id="detailContent" class="hidden"></div>
+      </aside>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
